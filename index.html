@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our 2025 Wrapped</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(#0f0f0f, rgb(43, 42, 42)), rgb(95, 89, 89) ;
+      color: white;
+      overflow: hidden;
+      animation: fadeIn 1.5s ease-in;
+    }
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+
+    .wrapped-container {
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+    }
+
+    /* Screens */
+    .screen {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(40px) scale(0.95);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+      padding: 30px;
+      pointer-events: none;
+    }
+    .screen.active {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+
+    /* Text */
+    h1 { font-size: 3.2rem; font-weight: 800; margin:0; }
+    p { margin-top: 15px; font-size: 1.1rem; color: #aaa; }
+
+    /* Tap hint */
+    .tap-hint {
+      position: absolute;
+      bottom: 40px;
+      font-size: 0.9rem;
+      color: #888;
+      animation: pulse 1.8s infinite;
+    }
+    @keyframes pulse {
+      0% { opacity: 0.4; }
+      50% { opacity: 1; }
+      100% { opacity: 0.4; }
+    }
+
+    /* Number animation */
+    .stat { font-size: 4rem; font-weight: 800; }
+
+    /* Button */
+    .next-btn {
+      margin-top: 40px;
+      padding: 15px 35px;
+      border-radius: 999px;
+      border: none;
+      font-size: 1rem;
+      font-weight: 700;
+      background: black;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .next-btn:hover { transform: scale(1.05); }
+  </style>
+</head>
+<body>
+
+<div class="wrapped-container">
+
+  <!-- Screen 1: Intro -->
+  <section class="screen active">
+    <h1>Welcome to our 2025 Wrapped</h1>
+    <p>Let's do a recap, shall we?</p>
+    <div class="tap-hint">Tap anywhere</div>
+  </section>
+
+<section class="screen">
+    <h1>2025 was better because you were in it</h1>
+    <p>We turned ordinary days into our favourite memories</p>
+</section>
+
+<section class="screen">
+    <h1>We smiled, laughed, crashed out, and cried together</h1>
+    <p>Vulnerability and Communication was always our priority</p>
+</section>
+
+  <!-- Screen 2: Kisses -->
+  <section class="screen">
+    <div class="stat" data-target="50">0</div>
+    <p>FaceTime Calls</p>
+    <p>More than 50 actually</p>
+    <div class="tap-hint">Tap</div>
+  </section>
+
+  <!-- Screen 3: FaceTime -->
+  <section class="screen">
+    <div class="stat" data-target="100">0</div>
+    <p>Kisses shared</p>
+    <p>Your lips became my third space</p>
+    <div class="tap-hint">Tap</div>
+  </section>
+
+  <!-- Screen 4: Top Memory -->
+  <section class="screen">
+    <h1>We spent so much time together</h1>
+    <h2>Our top spots were:</h2>
+    <p>Queens cafeteria, SST, EDC, Band, The Beach, Student Center</p>
+    <div class="tap-hint">Tap</div>
+  </section>
+
+  <!-- Screen 5: Emotional Ending -->
+  <section class="screen">
+    <h1>Some moments were just ours and it made them perfect</h1>
+    <p>Warmth and Peace is what I felt whenever you were there</p>
+  </section>
+
+<!-- Screen 2: Kisses -->
+  <section class="screen">
+    <div class="stat" data-target="200">0</div>
+    <p>We walked around this many times</p>
+    <p>I dont think this is a dramatic number</p>
+    <div class="tap-hint">Tap</div>
+  </section>
+
+  <!-- Screen 3: FaceTime -->
+  <section class="screen">
+    <div class="stat" data-target="10000000000">0</div>
+    <p>I beat you at WHOT this many times</p>
+    <p>Don't hate the player, hate the game</p>
+    <div class="tap-hint">Tap</div>
+  </section>
+
+  <section class="screen">
+    <div class="stat" data-target="0">0</div>
+    <p>You beat me at WHOT this many times</p>
+    <p>Damn, sucks to be you right now</p>
+    <div class="tap-hint">Tap</div>
+  </section>
+
+
+  <!-- Screen 4: Top Memory -->
+  <section class="screen">
+    <h1>Top dates in our catalog</h1>
+    <p>May 13th, July 5th, October 5th, December 6th</p>
+    <div class="tap-hint">Tap</div>
+  </section>
+
+  <!-- Screen 5: Emotional Ending -->
+  <section class="screen">
+    <h1>Somehow we made chaos romantic</h1>
+    </button>
+  </section>
+
+<!-- Screen 2: Kisses -->
+  <section class="screen">
+    <div class="stat" data-target="1000">0</div>
+    <p>We made random faces at each other this many times</p>
+    <div class="tap-hint">Tap</div>
+  </section>
+
+  <!-- Screen 3: FaceTime -->
+  <section class="screen">
+    <div class="stat" data-target="400">0</div>
+    <p>We made this many dirty jokes</p>
+    <p>My statistics say you made 399 of them</p>
+    <div class="tap-hint">Tap</div>
+  </section>
+
+  <!-- Screen 4: Top Memory -->
+  <section class="screen">
+    <h1>Most likely to win a staring contest</h1>
+    <p>You</p>
+    <div class="tap-hint">Tap</div>
+  </section>
+
+ <!-- Screen 4: Top Memory -->
+  <section class="screen">
+    <h1>Most likely to catch an attitude</h1>
+    <p>Gianna</p>
+    <div class="tap-hint">Tap</div>
+  </section>
+
+ <!-- Screen 4: Top Memory -->
+  <section class="screen">
+    <h1>We were hard workers</h1>
+    <h2>Our top projects</h2>
+    <h3>iylmibs, Price of Fame, Real citizens, WGA, Jaiye Music Video, Self Sabotage: A form of self doubt, The Chained Chain Breaker, Go Skate Day 2025, Pillar of Doubt</h3>
+    <div class="tap-hint">Tap</div>
+  </section>
+
+ <!-- Screen 4: Top Memory -->
+  <section class="screen">
+    <h1>Change is scary but we always compromised</h1>
+    <p>We experienced so many new things together</p>
+    <div class="tap-hint">Tap</div>
+  </section>
+
+    <!-- Screen 3: FaceTime -->
+  <section class="screen">
+    <p>Here are some of my firsts with you</p>
+    <p>1. Genuine Intimate Pleasure</p>
+    <p>2. Using public transport</p>
+    <p>3. Going out in general</p>
+    <p>4. Feeling confident about my work</p>
+    <p>5. The rest is not safe for work</p>
+    <div class="tap-hint">Tap</div>
+  </section>
+
+ <!-- Screen 4: Top Memory -->
+  <section class="screen">
+    <h1>Our top activity</h1>
+    <p>Take a wild guess</p>
+    <div class="tap-hint">Tap</div>
+  </section>
+  
+  
+ <!-- Screen 4: Top Memory -->
+  <section class="screen">
+    <h1>2025 wrapped? Yes but not us</h1>
+    <p>Still in love and always will be</p>
+    <div class="tap-hint">Tap</div>
+  </section>
+
+  
+ <!-- Screen 4: Top Memory -->
+  <section class="screen">
+    <h1>This is just the beginning</h1>
+    <p>Our journey is just starting</p>
+    <div class="tap-hint">Tap</div>
+  </section>
+
+  <!-- Screen 5: Emotional Ending -->
+  <section class="screen">
+    <h1>There's more</h1>
+    <p>Do you wanna see it?</p>
+    <button class="next-btn" onclick="window.location.href='third page.html'">
+      Yes
+    </button>
+  </section>
+
+
+<script>
+  const screens = document.querySelectorAll(".screen");
+  let current = 0;
+
+  // Animate numbers counting up
+  function animateNumber(el) {
+    const target = +el.dataset.target;
+    let count = 0;
+    const step = Math.ceil(target / 60);
+
+    const interval = setInterval(() => {
+      count += step;
+      if (count >= target) {
+        count = target;
+        clearInterval(interval);
+      }
+      el.textContent = count;
+    }, 20);
+  }
+
+  // Tap anywhere to go next screen
+  document.addEventListener("click", () => {
+    if (current < screens.length - 1) {
+      screens[current].classList.remove("active");
+      current++;
+      screens[current].classList.add("active");
+
+      const stat = screens[current].querySelector(".stat");
+      if (stat) animateNumber(stat);
+    }
+  });
+</script>
+
+</body>
+</html>

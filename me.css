@@ -1,0 +1,108 @@
+@import "https://unpkg.com/open-props@1.6.17/easings.min.css";
+
+
+.secret-page {
+  display: flex;
+  font-family: 'Inter', sans-serif;
+  font-size: large;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background: #000000;
+  color: #fff;
+  text-align: center;
+  padding: 150px;
+  border-radius: 15px;
+  animation: fadeIn 3.0s forwards;
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.scrollable {
+  max-height: 250px; /* adjust to fit your page */
+  overflow-y: auto;
+  text-align: left;
+  margin-top: 20px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 25px;
+
+  /* hidden by default */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 2s ease, transform 2s ease;
+}
+
+/* Hidden checkbox */
+.hidden-checkbox {
+  display: none;
+}
+
+/* Reveal when checkbox is checked */
+.hidden-checkbox:checked + .reveal-btn + #secret-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Label as button */
+.reveal-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-family: "Poppins", sans-serif;
+  font-weight: bolder;
+  font-size: 16px;
+  background: burlywood;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 3.0s ease-in;
+  display: inline-block;
+  }
+
+
+
+.reveal-btn:hover {
+  background: rgb(182, 182, 221);
+}
+
+#secret-text {
+    font-family: 'Inter', sans-serif;
+  font-size: 15px; /* adjust size */
+font-style: oblique;
+  font-weight: 400; /* 100-900 */
+  line-height: 1.6; /* spacing between lines */
+}
+
+.back-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-family: "Poppins", sans-serif;
+  font-weight: bolder;
+  font-size: 16px;
+  background: #a3abd8;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 10px;
+
+  /* Hide initially */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 2s ease, transform 2s ease;
+}
+
+
+/* Fade in secret text and back button together */
+.hidden-checkbox:checked + .reveal-btn + #secret-text,
+.hidden-checkbox:checked + .reveal-btn + #secret-text + .back-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+

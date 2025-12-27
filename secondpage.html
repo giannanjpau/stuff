@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OUR 2025 WRAPPED - Quiz</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top, #1f1f1f, #0f0f0f);
+      color: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      animation: fadeIn 3.0s ease-in;
+    }
+
+    .page.quiz-page {
+      background: radial-gradient( #1f1f1f, #0f0f0f);
+      padding: 50px 40px;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+      animation: fadeIn 0.8s forwards ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    h2 { font-size: 2rem; margin-bottom: 15px; font-weight: 700; }
+    p { font-size: 1rem; margin-bottom: 25px; line-height: 1.6; color: #ccc; }
+
+    .quiz-options { display: flex; flex-direction: column; gap: 15px; }
+
+    .option {
+      background: linear-gradient(145deg, #2a2a2a, #1f1f1f);
+      color: #fff;
+      border: none;
+      padding: 15px 20px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    .option:hover:not(:disabled) {
+      background: linear-gradient(145deg, #3c3c3c, #2a2a2a);
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 8px 20px rgba(44, 91, 221, 0.5);
+    }
+
+    .option:disabled { cursor: not-allowed; opacity: 0.6; }
+
+    .option.correct { background-color: #28a745 !important; color: #fff; }
+    .option.incorrect { background-color: #dc3545 !important; color: #fff; }
+
+    #feedback, #score {
+      margin-top: 20px;
+      font-size: 1rem;
+      font-weight: 600;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.5s ease;
+    }
+
+    #feedback.hidden, #score.hidden { display: none; }
+
+    #feedback:not(.hidden), #score:not(.hidden) {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #next-btn {
+      background: linear-gradient(145deg, #2a2a2a, #1f1f1f);
+      color: #fff;
+      border: none;
+      padding: 15px 25px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-top: 25px;
+      box-shadow: 0 4px 15px rgba(39, 42, 255, 0.4);
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    #next-btn:hover {
+      background: linear-gradient(145deg, #3c3c3c, #2a2a2a);
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 8px 20px rgba(49, 95, 219, 0.363);
+    }
+
+    #next-btn:disabled { cursor: not-allowed; opacity: 0.6; }
+
+    @media (max-width: 550px) {
+      .page.quiz-page { padding: 40px 25px; }
+      .option, #next-btn { padding: 12px 18px; font-size: 0.95rem; }
+    }
+
+.start-screen {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at top, #1f1f1f, #0f0f0f);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 10;
+  animation: fadeIn 3s ease-in;
+}
+
+.start-screen h2 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.start-screen p {
+  color: #aaa;
+  margin-bottom: 30px;
+}
+
+#start-btn {
+  padding: 16px 40px;
+  border-radius: 999px;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  background: linear-gradient(135deg, #ffffff, #afacac);
+  color: #121212;
+  box-shadow: 0 10px 30px rgba(146, 160, 209, 0.4);
+  transition: all 0.3s ease;
+}
+
+#start-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 15px 40px rgba(113, 43, 243, 0.6);
+}
+
+.hidden {
+  display: none !important;
+}
+
+#loveletter-btn {
+  background: linear-gradient(145deg, #2a2a2a, #1f1f1f);
+  color: #fff;
+  border: none;
+  padding: 15px 25px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 20px;
+  box-shadow: 0 4px 15px rgba(230, 75, 100, 0.4);
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+#loveletter-btn:hover {
+  background: linear-gradient(145deg, #3c3c3c, #2a2a2a);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+#loveletter-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+  </style>
+</head>
+<body>
+    <audio  id="bg-music" loop> 
+<source src="resources/everything-stays-feat-olivia-olson.mp3" type="audio/mpeg">
+</audio>
+
+<div id="start-screen" class="start-screen">
+  <h2>Up for a challenge?</h2>
+  <p>Let’s see how well you remember us.</p>
+  <button id="start-btn">Start</button>
+</div>
+
+
+  <div class="page quiz-page hidden" >
+    <h2>TRIVIA TIME</h2>
+    <p id="question"></p>
+
+    <div class="quiz-options"></div>
+
+    <p id="feedback" class="hidden"></p>
+    <p id="score" class="hidden"></p>
+    <button id="next-btn" class="hidden">Next one</button>
+    <button id="loveletter-btn" class="hidden">I have a secret</button>
+  </div>
+
+
+
+<script>
+  const music = document.getElementById("bg-music");
+  const startBtn = document.getElementById("start-btn");
+  const startScreen = document.getElementById("start-screen");
+  const quizPage = document.querySelector(".quiz-page");
+
+  startBtn.addEventListener("click", () => {
+    music.volume = 0.4;
+    music.play().catch(err => console.log(err));
+
+    startScreen.classList.add("hidden");
+    quizPage.classList.remove("hidden");
+
+    showQuestion(); // quiz starts HERE
+  });
+</script>
+
+
+  <script>
+    const questions = [
+      { question: "When did we meet?", options: ["April", "October", "January", "July"], correct: 0 },
+      { question: "When did we make our intentions clear?", options: ["May 2nd", "May 13th", "May 4th", "July 5th"], correct: 1 },
+      { question: "What was our first date?", options: ["Museum Date", "Movie Date", "Game Night", "Dinner Date"], correct: 0 },
+      { question: "Where did we share our first kiss?", options: ["Hotel", "Museum", "Cinema", "Beach"], correct: 3 },
+      { question: "What's my favourite thing to do on facetime?", options: ["Not turn on my camera", "Take pictures of you", "Smirk at the camera", "Stare at you"], correct: 1 },
+      { question: "What's my biggest fear?", options: ["Death", "Losing my two front teeth", "Falling into a gutter", "Clowns"], correct: 1 },
+      { question: "What are my middle names?", options: ["Onyinye and Obehi", "Onyiyechi and Obehi", "Oyin and Obehi", "Onyinyechi and Obehi"], correct: 1 },
+      { question: "What name did i call you often when we were friends?", options: ["Afang", "Jupe", "Ubong", "Akan"], correct: 2 },
+      { question: "What do you think my biggest insecurity is?", options: ["Forehead", "Smile", "Height", "Lips"], correct: 0 },
+      { question: "Something i love to do", options: ["Drink Coke", "Eat Chocolate", "Steal your clothes", "Run"], correct: 2},
+      { question: "Something I hate to do", options: ["Comfrontation", "Sweat", "Talk to people", "Drink water"], correct: 1 },
+      { question: "My favourite memory of us", options: ["October 5th", "December 6th", "May 13th", "July 5th"], correct: 1 },
+      { question: "My favourite thing about you", options: ["Everything", "Everything", "Everything", "Your butt"], correct: 3 },
+      { question: "My favourite physical feature about you", options: ["Your smile", "Your eyes", "Your lips", "Your facial hair"], correct: 2 },
+      { question: "The word I say the most", options: ["Oh!", "Interesting", "As how", "Chai"], correct: 0 },
+      { question: "A bad habit of mine", options: ["Biting my nails", "Chewing my hair", "Rubbing my hands together", "Not eating on time"], correct: 3 },
+      { question: "A phrase we say often", options: ["Chai, so sorry", "Hello? GET DOWN", "It is well", "Mornin, Strawberry and Cream Calzone"], correct: 2 },
+      { question: "Something you do that i pretend i hate but secretly love", options: ["Ragebaiting", "Buying me food", "Making my ears red"], correct: 0 },
+      { question: "Something you do that irks me", options: ["Not letting me walk you", "Ragebaiting", "Staring at me", "Touching my face"], correct:0 },
+      { question: "Random thing you do that gives me cuteness aggression", options: ["Yawning", "Dancing", "Pouting and being whiny", "Smiling"], correct: 2}
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+
+    const questionEl = document.getElementById('question');
+    const optionsEl = document.querySelector('.quiz-options');
+    const feedback = document.getElementById('feedback');
+    const scoreEl = document.getElementById('score');
+    const nextBtn = document.getElementById('next-btn');
+
+    function showQuestion() {
+      optionsEl.innerHTML = "";
+      feedback.classList.add('hidden');
+      nextBtn.classList.add('hidden');
+
+      const q = questions[currentQuestion];
+      questionEl.textContent = q.question;
+
+      q.options.forEach((option, index) => {
+        const btn = document.createElement('button');
+        btn.classList.add('option');
+        btn.textContent = option;
+        btn.addEventListener('click', () => selectAnswer(index));
+        optionsEl.appendChild(btn);
+      });
+    }
+
+    function selectAnswer(index) {
+      const q = questions[currentQuestion];
+      const optionButtons = document.querySelectorAll('.option');
+
+      if (index === q.correct) {
+        feedback.textContent = "Mhm, Just like that";
+        score++;
+        optionButtons[index].classList.add('correct');
+      } else {
+        feedback.textContent = `Not quite right. The correct answer is: ${q.options[q.correct]}`;
+        optionButtons[index].classList.add('incorrect');
+        optionButtons[q.correct].classList.add('correct');
+      }
+
+      feedback.classList.remove('hidden');
+      scoreEl.textContent = `Score: ${score}/${currentQuestion + 1}`;
+      scoreEl.classList.remove('hidden');
+
+      optionButtons.forEach(btn => btn.disabled = true);
+
+      nextBtn.textContent = currentQuestion < questions.length - 1 ? "Next Question" : "Finish";
+      nextBtn.classList.remove('hidden');
+    }
+
+    nextBtn.addEventListener('click', () => {
+      currentQuestion++;
+      if (currentQuestion < questions.length) {
+        showQuestion();
+      } else {
+        questionEl.textContent = "Perfect! Just like you <3";
+        optionsEl.innerHTML = "";
+        feedback.textContent = `Your final score is ${score}/${questions.length}`;
+        nextBtn.style.display = "none";
+
+        const loveBtn = document.getElementById('loveletter-btn');
+    loveBtn.classList.remove('hidden');
+    loveBtn.addEventListener('click', () => {
+      window.location.href = "loveletter.html"; // Redirects to the new page
+    });
+      }
+    });
+  </script>
+
+
+</body>
+</html>
