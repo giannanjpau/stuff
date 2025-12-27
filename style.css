@@ -14,7 +14,7 @@ body {
     height: 100vh;
     width: 100vw;
 	overflow: hidden;
-	background: url(resources/inyene\ and\ i.jpeg);
+	background: url(inyene\ and\ i.jpeg);
     background-size: contain;
     transition: opacity 0.6s;
     animation: fadeIn 3s ease-in;
@@ -98,3 +98,4 @@ body.nav-btn {
       transform: scale(1.05);
       box-shadow: 0 10px 25px rgba(0,0,0,0.3);
     }
+
